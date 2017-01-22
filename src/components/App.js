@@ -48,8 +48,6 @@ class App extends React.Component {
    }
 
    componentWillUpdate(nextProps, nextState) {
-      console.log('Something changed!')
-      console.log({ nextProps, nextState })
       localStorage.setItem(`order-${this.props.params.storeId}`, JSON.stringify(nextState.order))
       console.log({ nextState })
    }
