@@ -32,6 +32,14 @@ class App extends React.Component {
           state: 'fishes'
        }
       )
+
+      // check if there is any order in localStorage
+      const localStorageRef = localStorage.getItem(`order-${this.props.params.storeId}`)
+
+      if (localStorageRef) {
+         // update state from localStorage
+         this.setState({ order: JSON.parse(localStorageRef) })
+      }
    }
 
    componentWillUnmount() {
@@ -41,7 +49,9 @@ class App extends React.Component {
 
    componentWillUpdate(nextProps, nextState) {
       console.log('Something changed!')
-      console.log({nextProps, nextState})
+      console.log({ nextProps, nextState })
+      localStorage.setItem(`order-${this.props.params.storeId}`, JSON.stringify(nextState.order))
+      console.log({ nextState })
    }
 
    addFish(fish) {
