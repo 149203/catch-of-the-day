@@ -16,7 +16,7 @@ class App extends React.Component {
       this.loadSamples = this.loadSamples.bind(this)
       this.addToOrder = this.addToOrder.bind(this)
 
-      // instead of getIntitalState()
+      // instead of getInitialState()
       this.state = {
          fishes: {},
          order: {}
@@ -53,11 +53,12 @@ class App extends React.Component {
    }
 
    addFish(fish) {
+
       // create a copy of the state obj we want and save to new const
       const fishes = { ...this.state.fishes }
       const timestamp = Date.now()
-      // use bracket notation to create a property under fishes
-      // set it equal to the fish argument we've passed in
+      // use bracket notation to create a property under state.fishes
+      // assign the value of this property to the fish we've passed in
       fishes[ `fish-${timestamp}` ] = fish
 
       // set state
